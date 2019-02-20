@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AgentComptabilite"></activity>
+        <activity android:name=".ConsulterEquippement"></activity>
+        <activity android:name=".AgentComptabilite" />
         <activity android:name=".AgentDInventaire" />
         <activity android:name=".MenuPersonel" />
         <activity android:name=".MenuAgentDInventaire" />

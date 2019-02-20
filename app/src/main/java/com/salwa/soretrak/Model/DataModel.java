@@ -2,14 +2,17 @@ package com.salwa.soretrak.Model;
 
 public class DataModel {
 
-    int id;
+    int id,quantite;
     String nom, prenom, pseudo, email, mot_de_passe, type;
+    String reference;
 
-    public DataModel(int id, String nom, String prenom, String pseudo, String email, String mot_de_passe, String type) {
+    public DataModel(int id,int quantite,String reference, String nom, String prenom, String pseudo, String email, String mot_de_passe, String type) {
         this.id = id;
         this.nom = nom;
+        this.quantite = quantite;
         this.prenom = prenom;
         this.pseudo = pseudo;
+        this.reference = reference;
         this.email = email;
         this.mot_de_passe = mot_de_passe;
         this.type = type;
@@ -19,6 +22,21 @@ public class DataModel {
         return id;
     }
 
+    public int getQuantite() {
+        return quantite;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
 
     public String getNom() {
         return nom;
