@@ -22,5 +22,13 @@ public interface ApiRequest {
     @GET("ConsulterEquippement.php")
     Call<ResponseDataModel> getEquippement(@Query("id") String id_utilisateur);
 
+    /*************** Reclamation Panne *******************/
+    @FormUrlEncoded
+    @POST("ReclamationPanne.php")
+    Call<ResponseDataModel> ReclamationPanne(
+            @Field("idPersonnel") String idPersonnel,
+            @Field("idEquippement") String idEquippement,
+            @Field("description") String description
+    );
 
 }

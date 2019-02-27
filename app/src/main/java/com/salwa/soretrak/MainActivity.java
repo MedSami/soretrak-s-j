@@ -132,7 +132,7 @@ Login.enqueue(new Callback<ResponseDataModel>() {
 
     @Override
     public void onFailure(Call<ResponseDataModel> call, Throwable t) {
-
+        Toast.makeText(MainActivity.this, "Problem Connexion", Toast.LENGTH_SHORT).show();
     }
 });
             }

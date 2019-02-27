@@ -23,7 +23,7 @@ public class ConsulterEquippement extends AppCompatActivity {
     private RecyclerView RecycleLayout;
     private RecyclerView.LayoutManager RecycleManager;
     private RecyclerView.Adapter equippementPersonnelAdapter;
-    String idUtilisateur;
+    String idUtilisateur,btnValue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,7 @@ public class ConsulterEquippement extends AppCompatActivity {
         Bundle data = getIntent().getExtras();
         if (data != null) {
             idUtilisateur = data.getString("idUtilisateur");
+            btnValue = data.getString("btnValue");
 
         }
         ApiRequest api = RetrofitServer.getClient().create(ApiRequest.class);
@@ -47,7 +48,7 @@ public class ConsulterEquippement extends AppCompatActivity {
 
                 RecycleLayout.setLayoutManager(RecycleManager);
 
-                equippementPersonnelAdapter = new EquippementPersonnelAdapter(item, ConsulterEquippement.this);
+                equippementPersonnelAdapter = new EquippementPersonnelAdapter(item, ConsulterEquippement.this,btnValue,idUtilisateur);
 
                 RecycleLayout.setAdapter(equippementPersonnelAdapter);
             }
@@ -55,7 +56,7 @@ public class ConsulterEquippement extends AppCompatActivity {
 
         @Override
         public void onFailure(Call<ResponseDataModel> call, Throwable t) {
-            Toast.makeText(ConsulterEquippement.this,"error"+ t.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(ConsulterEquippement.this,"Problem connexion", Toast.LENGTH_SHORT).show();
 
         }
     });

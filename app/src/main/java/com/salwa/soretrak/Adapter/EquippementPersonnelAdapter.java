@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.salwa.soretrak.Model.DataModel;
 import com.salwa.soretrak.R;
+import com.salwa.soretrak.ReclamationPanne;
 
 import java.util.List;
 
@@ -19,9 +20,12 @@ public class EquippementPersonnelAdapter extends RecyclerView.Adapter<Equippemen
 
     List<DataModel> items;
     private Context ctx;
-    public EquippementPersonnelAdapter(List<DataModel> items, Context ctx) {
+    String btnValue,idUtilisateur;
+    public EquippementPersonnelAdapter(List<DataModel> items, Context ctx,String btnValue,String idUtilisateur) {
         this.items = items;
         this.ctx=ctx;
+        this.btnValue=btnValue;
+        this.idUtilisateur=idUtilisateur;
 
     }
 
@@ -60,18 +64,12 @@ public class EquippementPersonnelAdapter extends RecyclerView.Adapter<Equippemen
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                     Toast.makeText(ctx,"RA:"+ dm.getReference(), Toast.LENGTH_SHORT).show();
-                   /* if(ClickedButton.equals("paiement")){
-                        Intent intent=new Intent(ctx,ListePaiements.class);
-                        intent.putExtra("idEleve", ""+dm.getId_eleve());
-                        intent.putExtra("idParent", ""+idParent);
+                    if(btnValue.equals("panne")){
+                        Intent intent=new Intent(ctx, ReclamationPanne.class);
+                        intent.putExtra("idEquippement", ""+dm.getId());
+                        intent.putExtra("idUtilisateur", ""+idUtilisateur);
                         ctx.startActivity(intent);
-                    }else {
-                        Intent intent=new Intent(ctx,ListeAbsences.class);
-                        intent.putExtra("idEleve", ""+dm.getId_eleve());
-                        intent.putExtra("idParent", ""+idParent);
-                        ctx.startActivity(intent);
-                    }*/
+                    }
 
 
                 }

@@ -29,6 +29,7 @@ Button btnConsulter,btnModifier,btnPanne;
             public void onClick(View view) {
                 Intent i=new Intent(MenuPersonel.this,ConsulterEquippement.class);
                 i.putExtra("idUtilisateur",idUtilisateur);
+                i.putExtra("btnValue","consulter");
                 startActivity(i);
             }
         });
@@ -45,6 +46,7 @@ Button btnConsulter,btnModifier,btnPanne;
             public void onClick(View view) {
                 Intent i=new Intent(MenuPersonel.this,ConsulterEquippement.class);
                 i.putExtra("idUtilisateur",idUtilisateur);
+                i.putExtra("btnValue","panne");
                 startActivity(i);
             }
         });
