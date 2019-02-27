@@ -15,7 +15,8 @@ public interface ApiRequest {
 
     /******************** Authentification Login*******************/
     @GET("Login.php")
-    Call<ResponseDataModel> Login(@Query("pseudo") String pseudo);
+    Call<ResponseDataModel> Login(@Query("pseudo") String pseudo,
+                                  @Query("type") int type);
 
     /************** Select Equippement ****************/
     @GET("ConsulterEquippement.php")

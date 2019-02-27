@@ -2,5 +2,5 @@
     <string name="app_name">Soretrak</string>
     <string name="hintpseudo">Saisir votre Pseudo SVP</string>
     <string name="hintpassword">Saisir votre Mot De Passes SVP</string>
-    <string name="btnLogIn">Log In</string>
+    <string name="btnLogIn">Entrer</string>
 </resources>

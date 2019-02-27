@@ -35,7 +35,6 @@ public class ConsulterEquippement extends AppCompatActivity {
             idUtilisateur = data.getString("idUtilisateur");
 
         }
-        Toast.makeText(this, idUtilisateur, Toast.LENGTH_SHORT).show();
         ApiRequest api = RetrofitServer.getClient().create(ApiRequest.class);
         Call<ResponseDataModel> getEquippement=api.getEquippement(idUtilisateur);
     getEquippement.enqueue(new Callback<ResponseDataModel>() {
@@ -43,7 +42,6 @@ public class ConsulterEquippement extends AppCompatActivity {
         public void onResponse(Call<ResponseDataModel> call, Response<ResponseDataModel> response) {
             String code = response.body().getCode();
             List<DataModel> item = response.body().getResult();
-            Log.i("TAG", "onResponse: "+item);
             if (code.equals("1")) {
                 RecycleManager = new LinearLayoutManager(ConsulterEquippement.this, LinearLayoutManager.VERTICAL, false);
 

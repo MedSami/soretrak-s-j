@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ConsulterEquippement"></activity>
+        <activity android:name=".MenuTechnicien"></activity>
+        <activity android:name=".ReclamationPanne" />
+        <activity android:name=".ConsulterEquippement" />
         <activity android:name=".AgentComptabilite" />
         <activity android:name=".AgentDInventaire" />
         <activity android:name=".MenuPersonel" />
