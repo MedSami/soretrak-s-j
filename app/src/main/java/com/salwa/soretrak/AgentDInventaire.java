@@ -38,7 +38,9 @@ Button btnConsulterEqP,btnConsulterEqB,btnMiseAJour;
         btnMiseAJour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i=new Intent(AgentDInventaire.this,Inventaire.class);
+                //i.putExtra("btnValue","personnel");
+                startActivity(i);
 
             }
         });
