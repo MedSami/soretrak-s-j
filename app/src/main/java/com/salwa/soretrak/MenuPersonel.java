@@ -8,14 +8,13 @@ import android.widget.Button;
 
 public class MenuPersonel extends AppCompatActivity {
 String idUtilisateur;
-Button btnConsulter,btnModifier,btnPanne;
+Button btnConsulter,btnPanne;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_personel);
 
         btnConsulter=findViewById(R.id.btnConsulter);
-        btnModifier=findViewById(R.id.btnModifier);
         btnPanne=findViewById(R.id.btnPanne);
 
         Bundle data = getIntent().getExtras();
@@ -34,12 +33,7 @@ Button btnConsulter,btnModifier,btnPanne;
             }
         });
 
-        btnModifier.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
 
         btnPanne.setOnClickListener(new View.OnClickListener() {
             @Override

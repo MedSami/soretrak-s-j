@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import com.salwa.soretrak.API.ApiRequest;
 import com.salwa.soretrak.API.RetrofitServer;
-import com.salwa.soretrak.Adapter.BureauAdapter;
 import com.salwa.soretrak.Adapter.PersonnelAdapter;
 import com.salwa.soretrak.Model.DataModel;
 import com.salwa.soretrak.Model.ResponseDataModel;

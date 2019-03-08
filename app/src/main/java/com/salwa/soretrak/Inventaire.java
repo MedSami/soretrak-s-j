@@ -52,6 +52,13 @@ btnScan.setOnClickListener(new View.OnClickListener() {
     }
 });
 
+btnNext.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+
+    }
+});
+
     }
 
     @Override
@@ -64,6 +71,10 @@ btnScan.setOnClickListener(new View.OnClickListener() {
             else {
                 //Toast.makeText(this, result.getContents(),Toast.LENGTH_LONG).show();
                 edtRef.setText(result.getContents());
+                btnScan.setEnabled(false);
+                btnNext.setVisibility(View.VISIBLE);
+                edtRef.setVisibility(View.VISIBLE);
+                edtRef.setEnabled(false);
             }
         }
         else {

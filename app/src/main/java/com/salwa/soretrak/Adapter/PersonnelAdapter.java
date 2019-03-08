@@ -1,14 +1,19 @@
 package com.salwa.soretrak.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.salwa.soretrak.ConsulterEquippement;
 import com.salwa.soretrak.Model.DataModel;
 import com.salwa.soretrak.R;
+import com.salwa.soretrak.ReclamationPanne;
 
 import java.util.List;
 
@@ -57,12 +62,12 @@ public class PersonnelAdapter extends RecyclerView.Adapter<PersonnelAdapter.Acto
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   /* if(btnValue.equals("panne")){
-                        Intent intent=new Intent(ctx, ReclamationPanne.class);
-                        intent.putExtra("idEquippement", ""+dm.getId());
-                        intent.putExtra("idUtilisateur", ""+idUtilisateur);
+                    Toast.makeText(ctx, ""+dm.getId(), Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(ctx, ConsulterEquippement.class);
+                        intent.putExtra("idUtilisateur", ""+dm.getId());
+                        intent.putExtra("btnValue", "bb");
                         ctx.startActivity(intent);
-                    }*/
+
 
 
                 }

@@ -21,7 +21,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ListePersonnels"></activity>
-        <activity android:name=".ListeBureaux" />
         <activity android:name=".Inventaire" />
         <activity android:name=".MenuTechnicien" />
         <activity android:name=".ReclamationPanne" />

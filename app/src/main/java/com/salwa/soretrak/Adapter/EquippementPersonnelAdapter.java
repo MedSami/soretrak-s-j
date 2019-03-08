@@ -72,6 +72,7 @@ public class EquippementPersonnelAdapter extends RecyclerView.Adapter<Equippemen
                     }
 
 
+
                 }
             });
 
