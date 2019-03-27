@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.salwa.soretrak.ConsulterEquippement;
+import com.salwa.soretrak.Inventaire;
 import com.salwa.soretrak.Model.DataModel;
 import com.salwa.soretrak.R;
 import com.salwa.soretrak.ReclamationPanne;
@@ -21,11 +22,12 @@ public class PersonnelAdapter extends RecyclerView.Adapter<PersonnelAdapter.Acto
 
     List<DataModel> items;
     private Context ctx;
-    //String btnValue,idUtilisateur;
-    public PersonnelAdapter(List<DataModel> items, Context ctx) {
+    String btnValue,idUtilisateur;
+    public PersonnelAdapter(List<DataModel> items, Context ctx,String btnValue,String idUtilisateur) {
         this.items = items;
         this.ctx=ctx;
-
+this.btnValue=btnValue;
+this.idUtilisateur=idUtilisateur;
 
     }
 
@@ -62,12 +64,18 @@ public class PersonnelAdapter extends RecyclerView.Adapter<PersonnelAdapter.Acto
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(ctx, ""+dm.getId(), Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(ctx, ConsulterEquippement.class);
-                        intent.putExtra("idUtilisateur", ""+dm.getId());
+                    if(btnValue.equals("consulter")) {
+                        Intent intent = new Intent(ctx, ConsulterEquippement.class);
+                        intent.putExtra("idUtilisateur", "" + dm.getId());
                         intent.putExtra("btnValue", "bb");
                         ctx.startActivity(intent);
-
+                    }
+                    if(btnValue.equals("scan")) {
+                        Intent intent = new Intent(ctx, Inventaire.class);
+                        intent.putExtra("idUtilisateur",""+ dm.getId());
+                        intent.putExtra("btnValue", "bb");
+                        ctx.startActivity(intent);
+                    }
 
 
                 }

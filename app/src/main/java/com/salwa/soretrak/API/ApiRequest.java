@@ -29,7 +29,10 @@ public interface ApiRequest {
     @GET("ListePersonnel.php")
     Call<ResponseDataModel> getPersonnels();
 
-
+    /******************** Inventaire*******************/
+    @GET("Inventaire.php")
+    Call<ResponseDataModel> Inventaire(@Query("id") String idPersonnel,
+                                  @Query("designation") String designation);
     /*************** Reclamation Panne *******************/
     @FormUrlEncoded
     @POST("ReclamationPanne.php")

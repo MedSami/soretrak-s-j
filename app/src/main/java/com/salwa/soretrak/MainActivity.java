@@ -45,15 +45,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Spinner Drop down elements
-        List<String> categories = new ArrayList<String>();
-        categories.add("Personnel");
-        categories.add("Agent Comptabilité");
-        categories.add("Agent Inventaire");
-        categories.add("Technicien");
+        List<String> utilisateurs = new ArrayList<String>();
+        utilisateurs.add("Personnel");
+        utilisateurs.add("Agent Inventaire");
+        utilisateurs.add("Technicien");
 
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, utilisateurs);
 
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -101,17 +100,11 @@ Login.enqueue(new Callback<ResponseDataModel>() {
                     }
                     if(index==1){
 
-                        Intent intent=new Intent(MainActivity.this,MenuAgentComptabilite.class);
-                        intent.putExtra("idUtilisateur",""+response.body().getResult().get(0).getId());
-                        startActivity(intent);
-                    }
-                    if(index==2){
-
                         Intent intent=new Intent(MainActivity.this,MenuAgentDInventaire.class);
                         intent.putExtra("idUtilisateur",""+response.body().getResult().get(0).getId());
                         startActivity(intent);
                     }
-                    if(index==3){
+                    if(index==2){
 
                         Intent intent=new Intent(MainActivity.this,MenuTechnicien.class);
                         intent.putExtra("idUtilisateur",""+response.body().getResult().get(0).getId());

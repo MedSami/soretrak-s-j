@@ -23,7 +23,7 @@ public class ListePersonnels extends AppCompatActivity {
     private RecyclerView RecycleLayout;
     private RecyclerView.LayoutManager RecycleManager;
     private RecyclerView.Adapter personnelAdapter;
-
+String idUtilisateur,btnValue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +31,12 @@ public class ListePersonnels extends AppCompatActivity {
 
         RecycleLayout = findViewById(R.id.recyclerview);
 
+        Bundle data = getIntent().getExtras();
+        if (data != null) {
+            idUtilisateur = data.getString("idUtilisateur");
+            btnValue = data.getString("btnValue");
+
+        }
 
         ApiRequest api = RetrofitServer.getClient().create(ApiRequest.class);
         Call<ResponseDataModel> listePersonnels=api.getPersonnels();
@@ -45,7 +51,7 @@ public class ListePersonnels extends AppCompatActivity {
 
                 RecycleLayout.setLayoutManager(RecycleManager);
 
-                personnelAdapter = new PersonnelAdapter(item, ListePersonnels.this);
+                personnelAdapter = new PersonnelAdapter(item, ListePersonnels.this,btnValue,idUtilisateur);
 
                 RecycleLayout.setAdapter(personnelAdapter);
         }

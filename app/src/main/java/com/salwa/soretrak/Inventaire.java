@@ -19,12 +19,21 @@ import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.salwa.soretrak.API.ApiRequest;
+import com.salwa.soretrak.API.RetrofitServer;
+import com.salwa.soretrak.Model.ResponseDataModel;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Inventaire extends AppCompatActivity {
 ImageView img;
 
 Button btnScan,btnNext;
 EditText edtRef;
 Bitmap bitmap;
+String idUtilisateur;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +42,18 @@ Bitmap bitmap;
         edtRef=findViewById(R.id.edtRef);
         btnScan=findViewById(R.id.btnScan);
         btnNext=findViewById(R.id.btnNext);
+        Bundle data = getIntent().getExtras();
+        if (data != null) {
+            idUtilisateur = data.getString("idUtilisateur");
+            Toast.makeText(this, idUtilisateur, Toast.LENGTH_SHORT).show();
+        }
 
         bitmap = BitmapFactory.decodeResource(getApplicationContext().getResources()
                 ,R.drawable.frame);
         img.setImageBitmap(bitmap);
 
         final Activity activity = this;
-btnScan.setOnClickListener(new View.OnClickListener() {
+        btnScan.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         IntentIntegrator integrator = new IntentIntegrator(activity);
@@ -55,7 +69,23 @@ btnScan.setOnClickListener(new View.OnClickListener() {
 btnNext.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
+        ApiRequest api = RetrofitServer.getClient().create(ApiRequest.class);
+        Call<ResponseDataModel> inventaire=api.Inventaire(idUtilisateur,edtRef.getText().toString());
+inventaire.enqueue(new Callback<ResponseDataModel>() {
+    @Override
+    public void onResponse(Call<ResponseDataModel> call, Response<ResponseDataModel> response) {
+        Toast.makeText(Inventaire.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+        btnScan.setEnabled(true);
+        btnNext.setVisibility(View.GONE);
+        edtRef.setVisibility(View.GONE);
+        edtRef.setEnabled(false);
+    }
 
+    @Override
+    public void onFailure(Call<ResponseDataModel> call, Throwable t) {
+        Toast.makeText(activity, "Problem Connexion", Toast.LENGTH_SHORT).show();
+    }
+});
     }
 });
 

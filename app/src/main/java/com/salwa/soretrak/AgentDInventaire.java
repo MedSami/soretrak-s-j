@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class AgentDInventaire extends AppCompatActivity {
 Button btnConsulterEqP,btnMiseAJour;
+String idUtilisateur;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,13 +16,18 @@ Button btnConsulterEqP,btnMiseAJour;
         btnConsulterEqP=findViewById(R.id.btnEP);
         btnMiseAJour=findViewById(R.id.btnMise);
 
+        Bundle data = getIntent().getExtras();
+        if (data != null) {
+            idUtilisateur = data.getString("idUtilisateur");
 
+        }
 
         btnConsulterEqP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(AgentDInventaire.this,ListePersonnels.class);
-                //i.putExtra("btnValue","personnel");
+                i.putExtra("btnValue","consulter");
+                i.putExtra("idUtilisateur",idUtilisateur);
                 startActivity(i);
 
             }
@@ -30,8 +36,9 @@ Button btnConsulterEqP,btnMiseAJour;
         btnMiseAJour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(AgentDInventaire.this,Inventaire.class);
-                //i.putExtra("btnValue","personnel");
+                Intent i=new Intent(AgentDInventaire.this,ListePersonnels.class);
+                i.putExtra("btnValue","scan");
+                i.putExtra("idUtilisateur",idUtilisateur);
                 startActivity(i);
 
             }
