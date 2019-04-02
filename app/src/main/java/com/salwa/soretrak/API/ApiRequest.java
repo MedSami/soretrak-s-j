@@ -25,6 +25,9 @@ public interface ApiRequest {
     /************** Liste Bureaux ****************/
     @GET("ListeBureaux.php")
     Call<ResponseDataModel> getBureaux();
+    /************** Liste Panne ****************/
+    @GET("listPanne.php")
+    Call<ResponseDataModel> getPanne();
  /************** Liste Personnels ****************/
     @GET("ListePersonnel.php")
     Call<ResponseDataModel> getPersonnels();
@@ -42,4 +45,9 @@ public interface ApiRequest {
             @Field("description") String description
     );
 
+
+    /******************** Reponse Panne *******************/
+    @GET("reponsePanne.php")
+    Call<ResponseDataModel> ReponsePanne(@Query("id") String idPanne,
+                                       @Query("reponse") String reponse);
 }

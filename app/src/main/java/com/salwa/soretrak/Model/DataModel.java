@@ -4,14 +4,15 @@ public class DataModel {
 
     int id,quantite;
     String nom, prenom, pseudo, email, mot_de_passe, type;
-    String reference,numero;
+    String reference,numero,description;
 
-    public DataModel(int id,int quantite,String numero,String reference, String nom, String prenom, String pseudo, String email, String mot_de_passe, String type) {
+    public DataModel(int id,int quantite,String description,String numero,String reference, String nom, String prenom, String pseudo, String email, String mot_de_passe, String type) {
         this.id = id;
         this.nom = nom;
         this.quantite = quantite;
         this.prenom = prenom;
         this.numero=numero;
+        this.description=description;
         this.pseudo = pseudo;
         this.reference = reference;
         this.email = email;
@@ -25,6 +26,10 @@ public class DataModel {
 
     public String getNumero() {
         return numero;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public int getQuantite() {

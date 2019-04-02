@@ -10,8 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.salwa.soretrak.ConsulterEquippement;
 import com.salwa.soretrak.Model.DataModel;
 import com.salwa.soretrak.R;
+import com.salwa.soretrak.ReponsePanne;
 
 import java.util.List;
 
@@ -39,6 +41,7 @@ public class PanneAdapter extends RecyclerView.Adapter<PanneAdapter.ActorViewHol
     public void onBindViewHolder(PanneAdapter.ActorViewHolder holder, int position) {
         DataModel dm = items.get(position);
         holder.txtNomPrenom.setText(dm.getNom()+" "+dm.getPrenom());
+        holder.txtReference.setText(dm.getReference());
         holder.dm=dm;
 
     }
@@ -49,23 +52,24 @@ public class PanneAdapter extends RecyclerView.Adapter<PanneAdapter.ActorViewHol
     }
 
     public  class ActorViewHolder extends RecyclerView.ViewHolder{
-        TextView txtNomPrenom;
+        TextView txtNomPrenom,txtReference;
         ImageView tvImage;
         DataModel dm;
         public ActorViewHolder(View itemView) {
             super(itemView);
 
             txtNomPrenom =  itemView.findViewById(R.id.txtNomPrenom);
+            txtReference =  itemView.findViewById(R.id.txtRef);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(ctx, ""+dm.getId(), Toast.LENGTH_SHORT).show();
-                  /*  Intent intent=new Intent(ctx, ConsulterEquippement.class);
-                    intent.putExtra("idUtilisateur", ""+dm.getId());
-                    intent.putExtra("btnValue", "bb");
+                    Intent intent=new Intent(ctx, ReponsePanne.class);
+                    intent.putExtra("id", ""+dm.getId());
+                    intent.putExtra("description", ""+dm.getDescription());
                     ctx.startActivity(intent);
-*/
+                   // Toast.makeText(ctx, ""+dm.getDescription()+"-"+dm.getId(), Toast.LENGTH_SHORT).show();
+
 
 
                 }
