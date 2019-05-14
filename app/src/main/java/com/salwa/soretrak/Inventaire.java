@@ -38,14 +38,15 @@ String idUtilisateur;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventaire);
+
         img=findViewById(R.id.imageView);
         edtRef=findViewById(R.id.edtRef);
         btnScan=findViewById(R.id.btnScan);
         btnNext=findViewById(R.id.btnNext);
+
         Bundle data = getIntent().getExtras();
         if (data != null) {
             idUtilisateur = data.getString("idUtilisateur");
-            Toast.makeText(this, idUtilisateur, Toast.LENGTH_SHORT).show();
         }
 
         bitmap = BitmapFactory.decodeResource(getApplicationContext().getResources()
@@ -53,6 +54,7 @@ String idUtilisateur;
         img.setImageBitmap(bitmap);
 
         final Activity activity = this;
+
         btnScan.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {

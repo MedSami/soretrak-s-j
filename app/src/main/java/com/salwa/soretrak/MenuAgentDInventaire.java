@@ -14,6 +14,7 @@ String idUtilisateur;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_agent_dinventaire);
         btnGerer=findViewById(R.id.btnGerer);
+
         Bundle data = getIntent().getExtras();
         if (data != null) {
             idUtilisateur = data.getString("idUtilisateur");

@@ -27,11 +27,9 @@
         <activity android:name=".MenuTechnicien" />
         <activity android:name=".ReclamationPanne" />
         <activity android:name=".ConsulterEquippement" />
-        <activity android:name=".AgentComptabilite" />
         <activity android:name=".AgentDInventaire" />
         <activity android:name=".MenuPersonel" />
         <activity android:name=".MenuAgentDInventaire" />
-        <activity android:name=".MenuAgentComptabilite" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

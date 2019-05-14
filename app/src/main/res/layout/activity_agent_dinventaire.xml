@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AgentDInventaire">
+    tools:context=".AgentDInventaire"
+    android:background="@drawable/gradient_background">
 
     <Button
         android:id="@+id/btnEP"
@@ -15,6 +16,7 @@
         android:layout_marginTop="248dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="@drawable/gradient_button"
         android:drawableLeft="@drawable/ic_content_paste_black_24dp"
         android:text="Consulter les eq/personnel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +33,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="@drawable/gradient_button"
         android:drawableLeft="@drawable/ic_control_point_duplicate_black_24dp"
         android:text="Mise a jour des affectations"
         app:layout_constraintEnd_toEndOf="parent"

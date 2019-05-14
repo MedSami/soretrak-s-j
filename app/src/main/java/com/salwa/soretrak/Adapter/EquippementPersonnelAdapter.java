@@ -21,6 +21,7 @@ public class EquippementPersonnelAdapter extends RecyclerView.Adapter<Equippemen
     List<DataModel> items;
     private Context ctx;
     String btnValue,idUtilisateur;
+
     public EquippementPersonnelAdapter(List<DataModel> items, Context ctx,String btnValue,String idUtilisateur) {
         this.items = items;
         this.ctx=ctx;

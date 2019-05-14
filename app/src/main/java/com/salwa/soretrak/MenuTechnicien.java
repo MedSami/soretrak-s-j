@@ -19,6 +19,7 @@ Button btnGerePanne;
         @Override
         public void onClick(View view) {
             Intent i=new Intent(MenuTechnicien.this,ListPanne.class);
+            i.putExtra("btnValue","technicien");
             startActivity(i);
         }
     });

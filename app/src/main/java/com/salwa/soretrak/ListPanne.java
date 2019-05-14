@@ -23,12 +23,16 @@ public class ListPanne extends AppCompatActivity {
     private RecyclerView RecycleLayout;
     private RecyclerView.LayoutManager RecycleManager;
     private RecyclerView.Adapter panneAdapter;
+    String btnValue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_panne);
         RecycleLayout = findViewById(R.id.recyclerview);
-
+Bundle data=getIntent().getExtras();
+        if (data!=null) {
+            btnValue=data.getString("btnValue");
+        }
 
         ApiRequest api = RetrofitServer.getClient().create(ApiRequest.class);
         Call<ResponseDataModel> ListPanne=api.getPanne();
@@ -43,7 +47,7 @@ public class ListPanne extends AppCompatActivity {
 
                     RecycleLayout.setLayoutManager(RecycleManager);
 
-                    panneAdapter = new PanneAdapter(item, ListPanne.this);
+                    panneAdapter = new PanneAdapter(item, ListPanne.this,btnValue);
 
                     RecycleLayout.setAdapter(panneAdapter);
                 }

@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MenuPersonel extends AppCompatActivity {
 String idUtilisateur;
-Button btnConsulter,btnPanne;
+Button btnConsulter,btnPanne,btnReponse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +16,7 @@ Button btnConsulter,btnPanne;
 
         btnConsulter=findViewById(R.id.btnConsulter);
         btnPanne=findViewById(R.id.btnPanne);
+        btnReponse=findViewById(R.id.btnReponse);
 
         Bundle data = getIntent().getExtras();
         if (data != null) {
@@ -41,6 +42,16 @@ Button btnConsulter,btnPanne;
                 Intent i=new Intent(MenuPersonel.this,ConsulterEquippement.class);
                 i.putExtra("idUtilisateur",idUtilisateur);
                 i.putExtra("btnValue","panne");
+                startActivity(i);
+            }
+        });
+
+        btnReponse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MenuPersonel.this,ListPanne.class);
+                i.putExtra("idUtilisateur",idUtilisateur);
+                i.putExtra("btnValue","personnel");
                 startActivity(i);
             }
         });

@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     EditText pseudo,password;
     Button Login;
     TextView txtError;
-
     int index;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         pseudo=findViewById(R.id.edtPseudo);
         password=findViewById(R.id.edtPassword);
         Login=findViewById(R.id.btnLogin);
-        txtError=findViewById(R.id.txterror);
 
         // Spinner element
         Spinner spinner =  findViewById(R.id.spinner);
@@ -59,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -112,14 +111,17 @@ Login.enqueue(new Callback<ResponseDataModel>() {
                     }
 
                 }else {
-                    txtError.setText("Mot De Passe Incorrect");
+                    //txtError.setText("Mot De Passe Incorrect");
+                    Toast.makeText(MainActivity.this, "Mot De Passe Incorrect", Toast.LENGTH_SHORT).show();
                 }
             }
             }else {
-                txtError.setText("Pseudo Incorrect");
+               // txtError.setText("Pseudo Incorrect");
+                Toast.makeText(MainActivity.this, "Pseudo Incorrect", Toast.LENGTH_SHORT).show();
             }
         }else {
-            txtError.setText("Pseudo Incorrect");
+           // txtError.setText("Pseudo Incorrect");
+            Toast.makeText(MainActivity.this, "Pseudo Incorrect", Toast.LENGTH_SHORT).show();
         }
     }
 

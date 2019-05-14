@@ -20,6 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ConsulterEquippement extends AppCompatActivity {
+
     private RecyclerView RecycleLayout;
     private RecyclerView.LayoutManager RecycleManager;
     private RecyclerView.Adapter equippementPersonnelAdapter;
@@ -36,9 +37,11 @@ public class ConsulterEquippement extends AppCompatActivity {
             btnValue = data.getString("btnValue");
 
         }
+
         ApiRequest api = RetrofitServer.getClient().create(ApiRequest.class);
         Call<ResponseDataModel> getEquippement=api.getEquippement(idUtilisateur);
-    getEquippement.enqueue(new Callback<ResponseDataModel>() {
+
+        getEquippement.enqueue(new Callback<ResponseDataModel>() {
         @Override
         public void onResponse(Call<ResponseDataModel> call, Response<ResponseDataModel> response) {
             String code = response.body().getCode();

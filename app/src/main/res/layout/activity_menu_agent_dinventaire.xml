@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuAgentDInventaire">
+    tools:context=".MenuAgentDInventaire"
+    android:background="@drawable/gradient_background">
 
     <Button
         android:id="@+id/btnGerer"
@@ -15,6 +16,7 @@
         android:layout_marginTop="316dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="@drawable/gradient_button"
         android:drawableLeft="@drawable/ic_collections_black_24dp"
         android:text="Gerer les etats des equippements"
         app:layout_constraintEnd_toEndOf="parent"

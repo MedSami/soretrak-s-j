@@ -29,6 +29,7 @@ Button btnValider;
         edtReponse=findViewById(R.id.edtReponse);
         btnValider=findViewById(R.id.btnValider);
         txtDecription=findViewById(R.id.txtDescription);
+
         Bundle data = getIntent().getExtras();
         if (data != null) {
             idPanne = data.getString("id");

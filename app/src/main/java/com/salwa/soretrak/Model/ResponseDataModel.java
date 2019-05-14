@@ -12,9 +12,6 @@ public class ResponseDataModel {
         return result;
     }
 
-    public void setResult(List<DataModel> result) {
-        this.result = result;
-    }
 
     public String getCode() {
         return code;
